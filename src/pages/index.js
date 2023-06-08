@@ -21,7 +21,7 @@ export default function Home() {
         if (typeof window !== 'undefined' && navigator.geolocation)
             navigator.geolocation.getCurrentPosition(
                 (position) =>{
-                    setUrl(`https://api.openweathermap.org/data/2.5/weather?lon=${position.coords.longitude}&lat=${position.coords.latitude}&appid=2e7e1d8fabd7c153330e11d1f13782d9&units=metric`)
+                    setUrl(`https://api.openweathermap.org/data/2.5/weather?lon=${position.coords.longitude}&lat=${position.coords.latitude}&appid=${process.env.NEXT_PUBLIC_API_ID}&units=metric`)
                 });
     }
 
@@ -43,7 +43,7 @@ export default function Home() {
         searchInp=""
         document.getElementById("searchInp").value=""
         setFilterdCity([])
-        setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2e7e1d8fabd7c153330e11d1f13782d9&units=metric`)
+        setUrl(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_API_ID}&units=metric`)
     }
     function addToSavedCity(url)
     {
